@@ -1,0 +1,715 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+
+/* Common Style */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+html,
+body {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari and Opera */
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+a:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+input:focus-visible {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+button:focus,
+:focus-visible {
+  outline: none;
+  border: none;
+}
+
+/* Root*/
+:root {
+  --apple-logo: #e21d24;
+  --apple-background: #fcd5ce;
+  --berry-logo: #6c2e55;
+  --berry-background: #c8b6ff;
+  --citrus-logo: #f38f1c;
+  --citrus-background: #ffecd1;
+  --kiwi-logo: #8bb231;
+  --kiwi-background: #d4e09b;
+  --litchi-logo: #d64a5c;
+  --litchi-background: #ffc2d1;
+  --orange-logo: #f48016;
+  --orange-background: #ffd6ba;
+  --pear-background: #c9e78a;
+  --black-color: #000000;
+  --white-color: #ffffff;
+
+  /* Section 2 Cards Variables */
+  --card-bg-odd: #bfbfbf;
+  --card-bg-even: #f2f2f2;
+  --scale-level-1: 1.2;
+  --scale-level-2: 1;
+  --scale-level-3: 0.8;
+  --rotate-level-1: 0deg;
+  --rotate-level-2: 15deg;
+  --rotate-level-3: 30deg;
+  --position-x-level-1: 0;
+  --position-x-level-2: 2rem;
+  --position-x-level-3: 4rem;
+  --position-y-level-1: 0;
+  --position-y-level-2: 2rem;
+  --position-y-level-3: 10rem;
+  --active-scale: 1.35;
+  --active-position-y: -2rem;
+  --not-active-scale-offset: 0.15;
+}
+
+/* Typography */
+h1 {
+  font-family: "Lexend";
+  font-size: 15vw !important;
+  /* using vw makes it scale beautifully */
+  font-weight: 700 !important;
+  /* reduced font weight */
+  line-height: normal !important;
+  color: var(--white-color) !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+h2 {
+  font-family: "Lexend";
+  font-size: 1vw;
+  line-height: normal;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* Header */
+header {
+  padding: 22px 28px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 99;
+  text-align: left;
+}
+
+.logo {
+  color: var(--pear-logo);
+}
+
+h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Cane Image and Wrapper Image */
+.cane-image {
+  max-width: 265px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  mask-image: url(https://www.yudiz.com/codepen/fruity/cane.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-size: 100% auto;
+  mask-size: 100% auto;
+  overflow: hidden;
+}
+
+.cane-image img {
+  width: 100%;
+}
+
+.cane-labels {
+  position: relative;
+  display: flex;
+  width: 500% !important;
+  top: 0;
+  left: 0;
+  transition: all ease-in-out 0.3s;
+}
+
+.cane-labels img {
+  width: calc(100% / 5);
+  object-fit: contain;
+}
+
+/*Section  */
+.section-container-main {
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  z-index: -1;
+}
+
+.section-container {
+  width: 300vw;
+  display: flex;
+  position: relative;
+  transition: all ease-in-out 0.5s;
+  align-items: center;
+}
+
+.section {
+  min-width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* Add this to your CSS */
+/* Buttons */
+button {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  z-index: 99;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  background-color: var(--white-color);
+  border: none;
+  font-size: 40px;
+  color: var(--apple-logo);
+  transition: all ease-in-out 0.3s;
+  cursor: pointer;
+}
+
+#prevButton {
+  left: 30px;
+  right: unset;
+  display: none;
+  transition: all ease-in 0.3s;
+}
+
+.wave {
+  animation: wave-apple-effect 4s linear infinite;
+  animation-direction: normal;
+}
+
+@keyframes wave-apple-effect {
+  0% {
+    box-shadow: 0 0 0 0px var(--apple-background), 0 0 0 0px var(--apple-background);
+  }
+
+  40% {
+    box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 0px var(--apple-background);
+  }
+
+  80% {
+    box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 230, 118, 0);
+  }
+}
+
+@keyframes wave-berry-effect {
+  0% {
+    box-shadow: 0 0 0 0px var(--berry-background), 0 0 0 0px var(--berry-background);
+  }
+
+  40% {
+    box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 0px var(--berry-background);
+  }
+
+  80% {
+    box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 230, 118, 0);
+  }
+}
+
+@keyframes wave-citrus-effect {
+  0% {
+    box-shadow: 0 0 0 0px var(--citrus-background), 0 0 0 0px var(--citrus-background);
+  }
+
+  40% {
+    box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 0px var(--citrus-background);
+  }
+
+  80% {
+    box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 230, 118, 0);
+  }
+}
+
+@keyframes wave-kiwi-effect {
+  0% {
+    box-shadow: 0 0 0 0px var(--kiwi-background), 0 0 0 0px var(--kiwi-background);
+  }
+
+  40% {
+    box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 0px var(--kiwi-background);
+  }
+
+  80% {
+    box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 230, 118, 0);
+  }
+}
+
+@keyframes wave-litchi-effect {
+  0% {
+    box-shadow: 0 0 0 0px var(--litchi-background), 0 0 0 0px var(--litchi-background);
+  }
+
+  40% {
+    box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 0px var(--litchi-background);
+  }
+
+  80% {
+    box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 230, 118, 0);
+  }
+}
+
+@keyframes wave-orange-effect {
+  0% {
+    box-shadow: 0 0 0 0px var(--orange-background), 0 0 0 0px var(--orange-background);
+  }
+
+  40% {
+    box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 0px var(--orange-background);
+  }
+
+  80% {
+    box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 230, 118, 0);
+  }
+}
+
+@keyframes wave-pear-effect {
+  0% {
+    box-shadow: 0 0 0 0px var(--pear-background), 0 0 0 0px var(--pear-background);
+  }
+
+  40% {
+    box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 0px var(--pear-background);
+  }
+
+  80% {
+    box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 230, 118, 0);
+  }
+}
+
+/*.......... Responsive.............. */
+@media screen and (max-width: 1550px) {
+  h1 {
+    font-size: 200px !important;
+  }
+
+  .cane-image {
+    max-width: 280px;
+  }
+
+  .image-one {
+    max-width: 250px;
+  }
+
+  .image-two {
+    max-width: 215px;
+    left: 22%;
+    top: 10%;
+  }
+
+  .image-three {
+    max-width: 180px;
+  }
+
+  .image-four {
+    max-width: 260px;
+    right: 40px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  h1 {
+    font-size: 160px !important;
+  }
+
+  .cane-image::after {
+    width: 150%;
+  }
+
+  .image-one {
+    max-width: 220px;
+  }
+
+  .image-two {
+    max-width: 185px;
+    left: 18%;
+    top: 10%;
+  }
+
+  .image-three {
+    max-width: 180px;
+    right: 18%;
+  }
+
+  .image-four {
+    max-width: 230px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  h1 {
+    font-size: 130px !important;
+  }
+
+  .cane-image {
+    max-width: 250px;
+  }
+
+  button {
+    height: 80px;
+    width: 80px;
+    top: 90%;
+  }
+
+  .image-one {
+    max-width: 180px;
+  }
+
+  .image-two {
+    max-width: 165px;
+    left: 12%;
+    top: 12%;
+  }
+
+  .image-three {
+    max-width: 150px;
+    right: 12%;
+  }
+
+  .image-four {
+    max-width: 200px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: 100px !important;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .cane-image {
+    max-width: 180px;
+  }
+
+  button {
+    height: 60px;
+    width: 60px;
+    font-size: 20px;
+  }
+
+  .image-one {
+    max-width: 180px;
+    bottom: 150px;
+  }
+
+  .image-two {
+    max-width: 145px;
+    left: 12%;
+    top: 15%;
+  }
+
+  .image-three {
+    max-width: 130px;
+    right: 10%;
+  }
+
+  .image-four {
+    max-width: 180px;
+    bottom: 150px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  h1 {
+    font-size: 70px !important;
+  }
+
+  .cane-image::after {
+    width: 100%;
+  }
+
+  .image-one {
+    max-width: 150px;
+  }
+
+  .image-two {
+    max-width: 115px;
+    left: 4%;
+    top: 18%;
+  }
+
+  .image-three {
+    max-width: 100px;
+    right: 4%;
+  }
+
+  .image-four {
+    max-width: 150px;
+    right: 0;
+  }
+}
+
+/* Section 2 Styles */
+.section-2 {
+  background-color: #000;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  place-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.section-2 .card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-radius: 2vw;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.section-2 .card .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-2 .card .header .header-text .text-main {
+  display: block;
+  font-size: max(1.15vw, 0.5rem);
+  font-family: "Ruda", serif;
+  color: #000;
+}
+
+.section-2 .card .header .header-text .text-sub {
+  display: block;
+  font-size: 0.7vw;
+  margin-top: 0.1rem;
+  color: #606060;
+  font-family: "Ruda", serif;
+}
+
+.section-2 .card .header .header-icon-btn {
+  border: none;
+  padding: 0;
+  background-color: #a6a6a6;
+  width: 2.1vw;
+  height: 2.1vw;
+  border-radius: 50%;
+  outline: 1px dashed transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.3s, outline 0.3s;
+  top: auto;
+  right: auto;
+  transform: none;
+}
+
+.section-2 .card .header .header-icon-btn:before {
+  content: "";
+  position: absolute;
+  background-color: #ffb6c1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s;
+}
+
+.section-2 .card .header .header-icon-btn i {
+  position: relative;
+  font-size: 1vw;
+  transition: color 0.3s;
+}
+
+.section-2 .card .header .header-icon-btn:hover:before {
+  transform: scale(1);
+}
+
+.section-2 .card .header .header-icon-btn:hover i {
+  color: #ff1493;
+}
+
+.section-2 .card .header .header-icon-btn:active {
+  transform: translateY(2px);
+  outline-color: #ff69b4;
+}
+
+.section-2 .card .avatar-img {
+  align-self: center;
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section-2 .card:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  left: 0;
+  top: 0;
+  border-radius: 2vw;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.section-2 .card:nth-child(odd) {
+  background-color: var(--card-bg-odd);
+}
+
+.section-2 .card:nth-child(even) {
+  background-color: var(--card-bg-even);
+}
+
+.section-2 .card:nth-child(3) {
+  transform: scale(var(--scale-level-1)) rotate(var(--rotate-level-1)) translateX(var(--position-x-level-1)) translateY(var(--position-y-level-1));
+  z-index: 10;
+}
+
+.section-2 .card:nth-child(3).active {
+  transform: scale(var(--active-scale)) rotate(0) translateX(var(--position-x-level-1)) translateY(var(--active-position-y));
+  z-index: 20;
+}
+
+.section-2 .card:nth-child(3).not-active {
+  transform: scale(calc(var(--scale-level-1) - var(--not-active-scale-offset))) rotate(var(--rotate-level-1)) translateX(var(--position-x-level-1)) translateY(var(--position-y-level-1));
+}
+
+.section-2 .card:nth-child(2) {
+  transform: scale(var(--scale-level-2)) rotate(calc(-1 * var(--rotate-level-2))) translateX(var(--position-x-level-2)) translateY(var(--position-y-level-2));
+  z-index: 5;
+}
+
+.section-2 .card:nth-child(2).active {
+  transform: scale(var(--active-scale)) rotate(0) translateX(var(--position-x-level-2)) translateY(var(--active-position-y));
+  z-index: 20;
+}
+
+.section-2 .card:nth-child(2).not-active {
+  transform: scale(calc(var(--scale-level-2) - var(--not-active-scale-offset))) rotate(calc(-1 * var(--rotate-level-2))) translateX(var(--position-x-level-2)) translateY(var(--position-y-level-2));
+}
+
+.section-2 .card:nth-child(4) {
+  transform: scale(var(--scale-level-2)) rotate(var(--rotate-level-2)) translateX(calc(-1 * var(--position-x-level-2))) translateY(var(--position-y-level-2));
+  z-index: 5;
+}
+
+.section-2 .card:nth-child(4).active {
+  transform: scale(var(--active-scale)) rotate(0) translateX(var(--position-x-level-2)) translateY(var(--active-position-y));
+  z-index: 20;
+}
+
+.section-2 .card:nth-child(4).not-active {
+  transform: scale(calc(var(--scale-level-2) - var(--not-active-scale-offset))) rotate(var(--rotate-level-2)) translateX(calc(-1 * var(--position-x-level-2))) translateY(var(--position-y-level-2));
+}
+
+.section-2 .card:nth-child(1) {
+  transform: scale(var(--scale-level-3)) rotate(calc(-1 * var(--rotate-level-3))) translateX(var(--position-x-level-3)) translateY(var(--position-y-level-3));
+  z-index: 1;
+}
+
+.section-2 .card:nth-child(1).active {
+  transform: scale(var(--active-scale)) rotate(0) translateX(var(--position-x-level-3)) translateY(var(--active-position-y));
+  z-index: 20;
+}
+
+.section-2 .card:nth-child(1).not-active {
+  transform: scale(calc(var(--scale-level-3) - var(--not-active-scale-offset))) rotate(calc(-1 * var(--rotate-level-3))) translateX(var(--position-x-level-3)) translateY(var(--position-y-level-3));
+}
+
+.section-2 .card:nth-child(5) {
+  transform: scale(var(--scale-level-3)) rotate(var(--rotate-level-3)) translateX(calc(-1 * var(--position-x-level-3))) translateY(var(--position-y-level-3));
+  z-index: 1;
+}
+
+.section-2 .card:nth-child(5).active {
+  transform: scale(var(--active-scale)) rotate(0) translateX(calc(-1 * var(--position-x-level-3))) translateY(var(--active-position-y));
+  z-index: 20;
+}
+
+.section-2 .card:nth-child(5).not-active {
+  transform: scale(calc(var(--scale-level-3) - var(--not-active-scale-offset))) rotate(var(--rotate-level-3)) translateX(calc(-1 * var(--position-x-level-3))) translateY(var(--position-y-level-3));
+}
+
+.section-2 .card.not-active:before {
+  opacity: 0.5;
+  visibility: visible;
+}

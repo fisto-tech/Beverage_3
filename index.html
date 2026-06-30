@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Juice Tin</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <!-- header -->
+  <!-- Removed header and logo -->
+  <!-- main -->
+  <main>
+    <!-- Buttons -->
+    <div>
+      <button id="prevButton" class="wave"><i class="fa-solid fa-chevron-left"></i></button>
+      <button id="nextButton" class="wave"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <!-- Fixed Sections -->
+    <div class="text">
+      <h1 class="h1">Berry Blast</h1>
+      <div class="cane-image" style="mask-image: none; -webkit-mask-image: none;">
+        <div class="cane-labels">
+          <img src="./src/assets/Berry.png" alt="">
+          <img src="./src/assets/Citrus.png" alt="">
+          <img src="./src/assets/Kiwi.png" alt="">
+          <img src="./src/assets/Litchi.png" alt="">
+          <img src="./src/assets/Orange.png" alt="">
+        </div>
+      </div>
+    </div>
+    <!-- Fixed Sections Ends-->
+    <!-- Fruits Images Section -->
+    <div class="section-container-main">
+      <div class="section-container" style="width: 500vw;">
+        <section class="section" id="section1"
+          style="background: url('./src/assets/Berrybg.svg?v=2') center/cover no-repeat;"></section>
+        <section class="section" id="section2"
+          style="background: url('./src/assets/Citrusbg.svg?v=2') center/cover no-repeat;"></section>
+        <section class="section" id="section3"
+          style="background: url('./src/assets/Kiwibg.svg?v=2') center/cover no-repeat;"></section>
+        <section class="section" id="section4"
+          style="background: url('./src/assets/Litchbg.svg?v=2') center/cover no-repeat;"></section>
+        <section class="section" id="section5"
+          style="background: url('./src/assets/Orangebg.svg?v=2') center/cover no-repeat;"></section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Section 2: 3D Stacked Cards -->
+  <section class="section-2">
+    <div class="card">
+      <img class="avatar-img" src="./src/assets/berrycard.svg" alt="Berry Card" />
+    </div>
+    <div class="card">
+      <img class="avatar-img" src="./src/assets/citruscard.svg" alt="Citrus Card" />
+    </div>
+    <div class="card">
+      <img class="avatar-img" src="./src/assets/kiwicard.svg" alt="Kiwi Card" />
+    </div>
+    <div class="card">
+      <img class="avatar-img" src="./src/assets/litchicard.svg" alt="Litchi Card" />
+    </div>
+    <div class="card">
+      <img class="avatar-img" src="./src/assets/orangecard.svg" alt="Orange Card" />
+    </div>
+  </section>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js'></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>
