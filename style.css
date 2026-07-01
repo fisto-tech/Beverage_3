@@ -19,6 +19,7 @@ body {
   scrollbar-width: none;
   /* Firefox */
   background-color: #f6f5d7;
+  overflow-x: hidden;
 }
 
 html::-webkit-scrollbar,
@@ -162,6 +163,7 @@ h2 {
   font-size: 1vw;
   text-transform: uppercase;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .nav-pill a:hover {
@@ -171,8 +173,10 @@ h2 {
 h1 {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 0;
+  width: 100%;
+  text-align: center;
+  transform: translateY(-50%);
 }
 
 /* Cane Image and Wrapper Image */
@@ -466,7 +470,7 @@ button {
   button {
     height: 80px;
     width: 80px;
-    top: 90%;
+    top: 50%;
   }
 
   .image-one {
@@ -490,8 +494,40 @@ button {
 }
 
 @media screen and (max-width: 767px) {
+  .menu-btn {
+    display: block !important;
+  }
+  .navbar {
+    padding: 15px 20px;
+    align-items: center;
+  }
+  .logo-container {
+    max-width: 100px;
+    z-index: 102;
+  }
+  .nav-pill {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 60vw;
+    height: 100vh;
+    background-color: #f6f5d7;
+    flex-direction: column;
+    justify-content: center;
+    transition: right 0.3s ease;
+    z-index: 100;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+  }
+  .nav-pill.active {
+    right: 0;
+  }
+  .nav-pill a {
+    font-size: 5vw;
+    margin: 15px 0;
+  }
   h1 {
-    font-size: 100px !important;
+    font-size: 60px !important;
+    top: 75% !important;
   }
 
   h2 {
@@ -499,13 +535,15 @@ button {
   }
 
   .cane-image {
-    max-width: 180px;
+    max-width: 150px;
+    top: 40%;
   }
 
   button {
     height: 60px;
     width: 60px;
     font-size: 20px;
+    top: 50%;
   }
 
   .image-one {
@@ -532,11 +570,17 @@ button {
 
 @media screen and (max-width: 575px) {
   h1 {
-    font-size: 70px !important;
+    font-size: 45px !important;
+    top: 75% !important;
   }
 
   .cane-image::after {
     width: 100%;
+  }
+
+  .cane-image {
+    max-width: 120px;
+    top: 40%;
   }
 
   .image-one {
@@ -572,6 +616,7 @@ button {
   justify-content: space-between;
   align-items: center;
   padding-top: 5vw;
+  overflow: hidden;
 }
 
 .section-3-bg {
@@ -1005,23 +1050,45 @@ button {
     gap: 5vw;
   }
 
+  .section-3-bottom-logos .logo-item:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .logo-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 2vw;
+  }
+
   .logo-text h4 {
-    font-size: 2.5vw;
+    font-size: 3vw;
   }
 
   .logo-text p {
-    font-size: 2vw;
+    font-size: 2.5vw;
   }
 
   .logo-item img {
-    width: 8vw;
+    width: 12vw;
+  }
+
+  .cards-wrapper {
+    width: 130%;
+    margin-left: -15%;
   }
 }
 
 @media screen and (max-width: 480px) {
   .section-3-bottom-logos {
-    grid-template-columns: 1fr;
-    gap: 6vw;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4vw;
+  }
+
+  .logo-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 3vw;
   }
 
   .logo-text h4 {
@@ -1029,11 +1096,16 @@ button {
   }
 
   .logo-text p {
-    font-size: 3.5vw;
+    font-size: 3vw;
   }
 
   .logo-item img {
-    width: 12vw;
+    width: 15vw;
+  }
+
+  .cards-wrapper {
+    width: 150%;
+    margin-left: -25%;
   }
 }
 
@@ -1491,19 +1563,37 @@ button {
   .sec5-cards {
     grid-template-columns: repeat(2, 1fr);
   }
+  .sec5-card:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 1.5vw);
+  }
 
   .sec5-card {
     max-width: 100%;
     height: auto;
-    min-height: 300px;
+    min-height: 200px;
+    padding: 3vw 2vw;
   }
 
   .sec5-card h4 {
-    font-size: 3vw;
+    font-size: 2.5vw;
   }
 
   .sec5-card p {
-    font-size: 2.2vw;
+    font-size: 1.8vw;
+    line-height: 1.6;
+  }
+
+  .card-icon {
+    width: 70px;
+    height: 55px;
+    font-size: 35px;
+    margin-bottom: 1vw;
+  }
+
+  .card-line {
+    margin: 0.5vw 0;
   }
 }
 
@@ -1517,22 +1607,41 @@ button {
   }
 
   .sec5-cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3vw;
+  }
+  .sec5-card:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 1.5vw);
   }
 
   .sec5-card {
     max-width: 100%;
     margin-bottom: 2vw;
     height: auto;
-    min-height: 250px;
+    min-height: 200px;
+    padding: 3vw 2vw;
   }
 
   .sec5-card h4 {
-    font-size: 4.5vw;
+    font-size: 3.5vw;
   }
 
   .sec5-card p {
-    font-size: 3.5vw;
+    font-size: 2.5vw;
+    line-height: 1.6;
+  }
+
+  .card-icon {
+    width: 60px;
+    height: 50px;
+    font-size: 30px;
+    margin-bottom: 1vw;
+  }
+
+  .card-line {
+    margin: 0.5vw 0;
   }
 }
 

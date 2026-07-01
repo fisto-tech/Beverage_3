@@ -260,3 +260,20 @@ cards.forEach((card) => {
 setInterval(() => {
   goToNextSlide();
 }, 1000);
+
+// Mobile Menu Logic
+const menuBtn = document.getElementById("menuBtn");
+const navPill = document.getElementById("navPill");
+if (menuBtn && navPill) {
+  menuBtn.addEventListener("click", () => {
+    navPill.classList.toggle("active");
+  });
+  
+  // Close menu when a link is clicked
+  const navLinks = navPill.querySelectorAll("a");
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      navPill.classList.remove("active");
+    });
+  });
+}
