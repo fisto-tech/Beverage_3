@@ -704,9 +704,9 @@ button {
   place-content: center;
   position: relative;
   z-index: 4;
-  width: 100%;
-  max-width: 1200px;
-  margin: 2vw auto;
+  width: 95%;
+  max-width: 1600px;
+  margin: 4vw auto 2vw auto;
 }
 
 .cards-wrapper .card {
