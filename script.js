@@ -277,3 +277,36 @@ if (menuBtn && navPill) {
     });
   });
 }
+
+// Section 5 Cards Sliding Animation
+document.addEventListener("DOMContentLoaded", () => {
+  const sec5 = document.querySelector(".section-5");
+  if (!sec5) return;
+
+  // Set initial state for sliding animation
+  gsap.set(".sec5-card", { y: 80, opacity: 0 });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Play animation when entering
+        gsap.fromTo(".sec5-card", 
+          { y: 80, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power2.out",
+            clearProps: "all"
+          }
+        );
+      } else {
+        // Reset state when leaving
+        gsap.set(".sec5-card", { y: 80, opacity: 0 });
+      }
+    });
+  }, { threshold: 0.15 });
+
+  observer.observe(sec5);
+});

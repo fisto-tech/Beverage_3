@@ -706,7 +706,7 @@ button {
   z-index: 4;
   width: 95%;
   max-width: 1600px;
-  margin: 4vw auto 2vw auto;
+  margin: 5vw auto;
 }
 
 .cards-wrapper .card {
@@ -966,7 +966,7 @@ button {
 
   width: 95%;
   max-width: 1600px;
-  margin: 8vw auto 4vw auto;
+  margin: 2vw auto 4vw auto;
   z-index: 4;
   position: relative;
   align-items: start;
